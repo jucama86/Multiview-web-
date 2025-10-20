@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscador x4</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100vh;
+      gap: 5px;
+      padding: 5px;
+    }
+    .panel {
+      display: flex;
+      flex-direction: column;
+      background: #222;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .buscador {
+      display: flex;
+      padding: 8px;
+      background: #333;
+    }
+    input {
+      flex: 1;
+      padding: 6px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      font-size: 14px;
+      background: #0af;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    iframe {
+      flex: 1;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="buscador">
+      <input type="text" id="q1" placeholder="Buscar en Bing...">
+      <button onclick="buscar(1)">Buscar</button>
+    </div>
+    <iframe id="f1" src="https://www.bing.com"></iframe>
+  </div>
+  <div class="panel">
+    <div class="buscador">
+      <input type="text" id="q2" placeholder="Buscar en Bing...">
+      <button onclick="buscar(2)">Buscar</button>
+    </div>
+    <iframe id="f2" src="https://www.bing.com"></iframe>
+  </div>
+  <div class="panel">
+    <div class="buscador">
+      <input type="text" id="q3" placeholder="Buscar en Bing...">
+      <button onclick="buscar(3)">Buscar</button>
+    </div>
+    <iframe id="f3" src="https://www.bing.com"></iframe>
+  </div>
+  <div class="panel">
+    <div class="buscador">
+      <input type="text" id="q4" placeholder="Buscar en Bing...">
+      <button onclick="buscar(4)">Buscar</button>
+    </div>
+    <iframe id="f4" src="https://www.bing.com"></iframe>
+  </div>
+
+  <script>
+    function buscar(n) {
+      const query = document.getElementById(`q${n}`).value.trim();
+      const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+      document.getElementById(`f${n}`).src = url;
+    }
+  </script>
+</body>
+</html>
