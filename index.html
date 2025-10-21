@@ -2,81 +2,67 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Buscador x4</title>
+  <title>Buscadores x4 - Modo Oscuro</title>
   <style>
+    :root {
+      color-scheme: dark;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      background: #111;
+      background-color: #0d0d0d;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       height: 100vh;
-      gap: 5px;
-      padding: 5px;
+      gap: 6px;
+      padding: 6px;
+      font-family: 'Segoe UI', sans-serif;
     }
     .panel {
       display: flex;
       flex-direction: column;
-      background: #222;
-      border-radius: 8px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
       overflow: hidden;
+      border: 2px solid #333;
+      box-shadow: 0 0 8px rgba(0,0,0,0.6);
     }
-    .buscador {
-      display: flex;
+    .titulo {
+      background-color: #222;
+      color: #f0f0f0;
       padding: 8px;
-      background: #333;
-    }
-    input {
-      flex: 1;
-      padding: 6px;
-      font-size: 14px;
-      border: none;
-      border-radius: 4px;
-    }
-    button {
-      margin-left: 5px;
-      padding: 6px 10px;
-      font-size: 14px;
-      background: #0af;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+      font-size: 15px;
+      text-align: center;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #444;
     }
     iframe {
       flex: 1;
       border: none;
+      background-color: #000;
     }
   </style>
 </head>
 <body>
   <div class="panel">
-    <div class="buscador">
-      <input type="text" id="q1" placeholder="Buscar en DuckDuck...">
-      <button onclick="buscar(1)">Buscar</button>
-    </div>
-    <iframe id="f1" src="https://duckduckgo.com"></iframe>
+    <div class="titulo">DuckDuckGo</div>
+    <iframe src="https://duckduckgo.com" loading="lazy"></iframe>
   </div>
   <div class="panel">
-    <div class="buscador">
-      <input type="text" id="q2" placeholder="Buscar en Brave...">
-      <button onclick="buscar(2)">Buscar</button>
-    </div>
-    <iframe id="f2" src="https://search..brave.com"></iframe>
+    <div class="titulo">Brave Search</div>
+    <iframe src="https://search.brave.com" loading="lazy"></iframe>
   </div>
   <div class="panel">
-    <div class="buscador">
-      <input type="text" id="q3" placeholder="Buscar en Mojeek...">
-      <button onclick="buscar(3)">Buscar</button>
-    </div>
-    <iframe id="f3" src="https://www.mojeek.com"></iframe>
+    <div class="titulo">Mojeek</div>
+    <iframe src="https://www.mojeek.com" loading="lazy"></iframe>
   </div>
   <div class="panel">
-    <div class="buscador">
-      <input type="text" id="q4" placeholder="Buscar en Qwant...">
-      <button onclick="buscar(4)">Buscar</button>
-    </div>
-    <iframe id="f4" src="https://www.qwant.com"></iframe>
+    <div class="titulo">Qwant</div>
+    <iframe src="https://www.qwant.com" loading="lazy"></iframe>
   </div>
 </body>
 </html>
