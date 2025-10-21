@@ -52,39 +52,31 @@
 <body>
   <div class="panel">
     <div class="buscador">
-      <input type="text" id="q1" placeholder="Buscar en Bing...">
+      <input type="text" id="q1" placeholder="Buscar en DuckDuck...">
       <button onclick="buscar(1)">Buscar</button>
     </div>
-    <iframe id="f1" src="https://www.bing.com"></iframe>
+    <iframe id="f1" src="https://duckduckgo.com"></iframe>
   </div>
   <div class="panel">
     <div class="buscador">
-      <input type="text" id="q2" placeholder="Buscar en Bing...">
+      <input type="text" id="q2" placeholder="Buscar en Brave...">
       <button onclick="buscar(2)">Buscar</button>
     </div>
-    <iframe id="f2" src="https://www.bing.com"></iframe>
+    <iframe id="f2" src="https://search..brave.com"></iframe>
   </div>
   <div class="panel">
     <div class="buscador">
-      <input type="text" id="q3" placeholder="Buscar en Bing...">
+      <input type="text" id="q3" placeholder="Buscar en Mojeek...">
       <button onclick="buscar(3)">Buscar</button>
     </div>
-    <iframe id="f3" src="https://www.bing.com"></iframe>
+    <iframe id="f3" src="https://www.mojeek.com"></iframe>
   </div>
   <div class="panel">
     <div class="buscador">
-      <input type="text" id="q4" placeholder="Buscar en Bing...">
+      <input type="text" id="q4" placeholder="Buscar en Qwant...">
       <button onclick="buscar(4)">Buscar</button>
     </div>
-    <iframe id="f4" src="https://www.bing.com"></iframe>
+    <iframe id="f4" src="https://www.qwant.com"></iframe>
   </div>
-
-  <script>
-    function buscar(n) {
-      const query = document.getElementById(`q${n}`).value.trim();
-      const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
-      document.getElementById(`f${n}`).src = url;
-    }
-  </script>
 </body>
 </html>
