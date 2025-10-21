@@ -2,14 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Buscadores x4 - Modo Oscuro</title>
+  <title>Panel de Navegación x4</title>
   <style>
-    :root {
-      color-scheme: dark;
-    }
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       background-color: #0d0d0d;
@@ -20,49 +14,90 @@
       gap: 6px;
       padding: 6px;
       font-family: 'Segoe UI', sans-serif;
+      color: #fff;
     }
     .panel {
-      display: flex;
-      flex-direction: column;
       background-color: #1a1a1a;
       border-radius: 10px;
-      overflow: hidden;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       border: 2px solid #333;
       box-shadow: 0 0 8px rgba(0,0,0,0.6);
     }
     .titulo {
-      background-color: #222;
-      color: #f0f0f0;
-      padding: 8px;
-      font-size: 15px;
-      text-align: center;
       font-weight: bold;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid #444;
+      font-size: 15px;
+      margin-bottom: 8px;
+      text-align: center;
     }
-    iframe {
-      flex: 1;
+    input {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
       border: none;
-      background-color: #000;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      background-color: #333;
+      color: #fff;
+    }
+    button {
+      padding: 8px;
+      font-size: 14px;
+      background-color: #0af;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #08c;
     }
   </style>
 </head>
 <body>
   <div class="panel">
-    <div class="titulo">DuckDuckGo</div>
-    <iframe src="https://duckduckgo.com" loading="lazy"></iframe>
+    <div class="titulo">Ventana 1</div>
+    <input type="text" id="url1" value="https://duckduckgo.com">
+    <button onclick="abrir(1)">Abrir / Actualizar</button>
   </div>
   <div class="panel">
-    <div class="titulo">Brave Search</div>
-    <iframe src="https://search.brave.com" loading="lazy"></iframe>
+    <div class="titulo">Ventana 2</div>
+    <input type="text" id="url2" value="https://search.brave.com">
+    <button onclick="abrir(2)">Abrir / Actualizar</button>
   </div>
   <div class="panel">
-    <div class="titulo">Mojeek</div>
-    <iframe src="https://www.mojeek.com" loading="lazy"></iframe>
+    <div class="titulo">Ventana 3</div>
+    <input type="text" id="url3" value="https://www.mojeek.com">
+    <button onclick="abrir(3)">Abrir / Actualizar</button>
   </div>
   <div class="panel">
-    <div class="titulo">Qwant</div>
-    <iframe src="https://www.qwant.com" loading="lazy"></iframe>
+    <div class="titulo">Ventana 4</div>
+    <input type="text" id="url4" value="https://www.qwant.com">
+    <button onclick="abrir(4)">Abrir / Actualizar</button>
   </div>
+
+  <script>
+    const ventanas = {};
+
+    function abrir(n) {
+      const url = document.getElementById(`url${n}`).value.trim();
+      const nombre = `ventana${n}`;
+      const opciones = `width=600,height=400,left=${100 + n*50},top=${100 + n*50}`;
+      if (!ventanas[n] || ventanas[n].closed) {
+        ventanas[n] = window.open(url, nombre, opciones);
+      } else {
+        ventanas[n].location.href = url;
+        ventanas[n].focus();
+      }
+    }
+
+    window.onload = () => {
+      for (let i = 1; i <= 4; i++) {
+        abrir(i);
+      }
+    };
+  </script>
 </body>
 </html>
